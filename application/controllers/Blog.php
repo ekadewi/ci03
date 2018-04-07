@@ -17,6 +17,24 @@ class Blog extends CI_Controller {
 		$this->load->view('home_detail', $data);
 	}
 
+	public function tambah()
+	{
+		$this->load->model('artikel');
+		$data = array();
+
+		if ($this->input->post('submit')) {
+			$upload = $this->artikel->upload();
+
+			if ($upload['result'] == 'success') {
+				$this->artikel->insert($upload);
+				redirect('blog');
+			}else{
+				$data['message'] = $upload['error'];
+			}
+		}
+
+		$this->load->view('insert_blog', $data);
+	}
 }
 
 /* End of file Blog.php */
