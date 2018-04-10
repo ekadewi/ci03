@@ -40,33 +40,36 @@
 				</div><!-- /.navbar-collapse -->
 			</div>
 		</nav>
+		<div class="container">
+    		<div class="jumbotron" style="background-color:#CCF;">
+        		<div class="page-header" style="color:#066;</h3>">
+            		<h1>Blog</h1>
+            	</div>
+            	<p>Insert new blog...</p>
+         	</div>
+    	</div>
 		<br>
 		<div class="alert-warning"><?php echo (isset($message))? : "";?></div>
 		<div class="container">
 			<?php echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); ?>
-			<table>
+			<table class="table table-responsive">
 				<tr>
 					<td>Judul</td>
 					<td>:</td>
-					<td><input type="text" name="input_judul" value="<?php echo set_value('input_judul'); ?>"></td>
+					<td><input type="text" name="input_judul" style="width: 500px;" value="<?php echo set_value('input_judul'); ?>"></td>
 				</tr>
 				<tr>
 					<td>Content</td>
 					<td>:</td>
-					<td><input type="text" name="input_content" value=""></td>
-				</tr>
-				<tr>
-					<td>Tanggal Post</td>
-					<td>:</td>
-					<td><input type="text" name="input_tanggal_post" value=""></td>
+					<td><textarea name="input_content" style="height: 300px; width: 800px;"></textarea></td>
 				</tr>
 				<tr>
 					<td>Gambar</td>
 					<td>:</td>
 					<td><input type="file" name="input_gambar"></td>
 				</tr>
-				<tr>
-					<td colspan="3"><input type="submit" name="submit" value="simpan"></td>
+				<tr class="text-center">
+					<td colspan="3"><input type="submit" name="submit" value="simpan" class="btn btn-primary"></td>
 				</tr>
 			</table>
 		</div>

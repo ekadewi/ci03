@@ -38,11 +38,33 @@ class Artikel extends CI_Model {
 			'id' => '',
 			'judul' => $this->input->post('input_judul'),
 			'content' => $this->input->post('input_content'),
-			'tanggal_post' => $this->input->post('input_tanggal_post'),
+			'tanggal_post' => date("Y-m-d"),
 			'image' => $upload['file']['file_name']
 		);
 
 		$this->db->insert('blog', $data);
+	}
+
+	public function update($upload, $id){
+		if ($upload['result']=='success') {
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'content' => $this->input->post('content'),
+				'image' => $upload['file']['file_name']
+			);
+		} else {
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'content' => $this->input->post('content'),
+			);
+		}
+		$this->db->where('id', $id);
+		$this->db->update('blog', $data);
+	}
+
+	public function delete($id){
+		$this->db->where('id', $id);
+		$this->db->delete('blog');
 	}
 }
 

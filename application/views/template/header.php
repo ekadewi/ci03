@@ -34,44 +34,10 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="home">Home</a></li>
-						<li><a href="about">About</a></li>
 						<li><a href="blog">Blog</a></li>
+						<li><a href="about">About</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
 		</nav>
-
-		<div class="container">
-    		<div class="jumbotron" style="background-color:#CCF;">
-        		<div class="page-header" style="color:#066;</h3>">
-            		<h1>Blog</h1>
-            	</div>
-            	<p>All about Kimi No Nawa...</p>
-         	</div>
-    	</div>
-    	<div class="container">
-    		<a href="blog/tambah" class="btn btn-primary">Tambah</a>
-    	</div>
-    	<br>
-		<div class="container text-center">
-			<?php foreach ($artikel as $key): ?>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<table style="margin-bottom: 30px;">
-						<tr>
-							<td>
-								<a href="blog/detail/<?php echo $key->id ?>" style="color: black;">
-									<img src="upload/<?php echo $key->image;?>" alt="Image" width="300" height="200">
-									<br>
-									<?php echo $key->judul ?>
-								</a>
-								<br>
-								<a href="blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
-								<a href="blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
-							</td>
-						</tr>
-					</table>
-				</div>
-			<?php endforeach ?>
-		</div>
-	</body>
-</html>
+	
