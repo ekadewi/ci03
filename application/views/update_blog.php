@@ -62,12 +62,42 @@
 					<tr>
 						<td>Judul</td>
 						<td>:</td>
-						<td><input type="text" name="judul" style="width: 500px;" value="<?php echo $key->judul; ?>"></td>
+						<td><input type="text" name="judul" style="width: 500px;" value="<?php echo set_value('judul', $key->judul); ?>"></td>
 					</tr>
 					<tr>
 						<td>Content</td>
 						<td>:</td>
-						<td><textarea name="content" style="height: 300px; width: 800px;"><?php echo $key->content; ?></textarea></td>
+						<td><textarea name="content" style="height: 300px; width: 800px;"><?php echo set_value('content', $key->content); ?></textarea></td>
+					</tr>
+					<tr>
+						<td>Author</td>
+						<td>:</td>
+						<td><input type="text" name="input_author" style="width: 500px;" value="<?php echo set_value('input_author', $key->author); ?>"></td>
+					</tr>
+					<tr>
+						<td>Email Author</td>
+						<td>:</td>
+						<td><input type="text" name="input_email" style="width: 500px;" value="<?php echo set_value('input_email', $key->email_author); ?>"></td>
+					</tr>
+					<tr>
+						<td>No Telp Author</td>
+						<td>:</td>
+						<td><input type="text" name="input_notelp" style="width: 500px;" value="<?php echo set_value('input_notelp', $key->no_telp); ?>"></td>
+					</tr>
+					<tr>
+						<td>Username</td>
+						<td>:</td>
+						<td><input type="text" name="input_username" style="width: 500px;" value="<?php echo set_value('input_username', $key->username); ?>"></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td>:</td>
+						<td><input type="password" name="input_password" style="width: 500px;" value="<?php echo set_value('input_password', $key->password); ?>"></td>
+					</tr>
+					<tr>
+						<td>Password Konfirmasi</td>
+						<td>:</td>
+						<td><input type="password" name="input_passconf" style="width: 500px;"></td>
 					</tr>
 					<tr>
 						<td>Gambar</td>

@@ -48,21 +48,67 @@ class Blog extends CI_Controller {
 
 	public function tambah()
 	{
-		$this->load->model('artikel');
-		$data = array();
+		 $this->form_validation->set_rules('input_judul', 'Judul', 'required',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!'
+			));
 
-		if ($this->input->post('submit')) {
-			$upload = $this->artikel->upload();
+		$this->form_validation->set_rules('input_content', 'Content', 'required|min_length[10]',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'min_length' 	=> 'Isi kolom %s kurang panjang'
+			));
+		$this->form_validation->set_rules('input_author', 'Author', 'required|alpha',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'alpha' 	=> 'kolom %s hanya boleh diisi huruf'
+			));
+		$this->form_validation->set_rules('input_email', 'Email', 'required|valid_email',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'valid_email' 	=> 'kolom %s harus diisi dengan format email'
+			));
+		$this->form_validation->set_rules('input_notelp', 'NoTelp', 'required|numeric',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'numeric' 	=> 'kolom %s hanya boleh diisi angka'
+			));
+		$this->form_validation->set_rules('input_username', 'Username', 'required|is_unique[blog.username]',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'is_unique'		=> 'isi dari kolom %s sudah ada'
+			));
+		$this->form_validation->set_rules('input_password', 'Password', 'required',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!'
+			));
+		$this->form_validation->set_rules('input_passconf', 'Password Konfirmasi', 'required|matches[input_password]',
+			array(
+				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!',
+				'matches'		=> 'kolom %s tidak cocok dengan kolom Password'
+			));
 
-			if ($upload['result'] == 'success') {
-				$this->artikel->insert($upload);
-				redirect('blog');
-			}else{
-				$data['message'] = $upload['error'];
+		if ($this->form_validation->run() === FALSE)
+	    {
+	        $this->load->view('insert_blog');
+	    } else {
+	    	$this->load->model('artikel');
+			$data = array();
+
+			if ($this->input->post('submit')) {
+				$upload = $this->artikel->upload();
+
+				if ($upload['result'] == 'success') {
+					$this->artikel->insert($upload);
+					redirect('blog');
+				}else{
+					$data['message'] = $upload['error'];
+				}
 			}
-		}
-
-		$this->load->view('insert_blog', $data);
+			$this->load->view('insert_blog', $data);
+	    }
+		
+		
 	}
 
 	public function update($id) {
@@ -84,6 +130,8 @@ class Blog extends CI_Controller {
 		$this->artikel->delete($id);
 		redirect('blog');
 	}
+
+
 
 }
 

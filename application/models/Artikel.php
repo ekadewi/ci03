@@ -39,7 +39,11 @@ class Artikel extends CI_Model {
 			'judul' => $this->input->post('input_judul'),
 			'content' => $this->input->post('input_content'),
 			'tanggal_post' => date("Y-m-d"),
-			'image' => $upload['file']['file_name']
+			'image' => $upload['file']['file_name'],
+			'author' => $this->input->post('input_author'),
+			'email_author' => $this->input->post('input_email'),
+			'no_telp' => $this->input->post('input_notelp'),
+			'password' => $this->input->post('input_password')
 		);
 
 		$this->db->insert('blog', $data);
