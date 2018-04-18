@@ -43,6 +43,7 @@ class Artikel extends CI_Model {
 			'author' => $this->input->post('input_author'),
 			'email_author' => $this->input->post('input_email'),
 			'no_telp' => $this->input->post('input_notelp'),
+			'username' => $this->input->post('input_username'),
 			'password' => $this->input->post('input_password')
 		);
 
@@ -54,12 +55,22 @@ class Artikel extends CI_Model {
 			$data = array(
 				'judul' => $this->input->post('judul'),
 				'content' => $this->input->post('content'),
-				'image' => $upload['file']['file_name']
+				'image' => $upload['file']['file_name'],
+				'author' => $this->input->post('input_author'),
+				'email_author' => $this->input->post('input_email'),
+				'no_telp' => $this->input->post('input_notelp'),
+				'username' => $this->input->post('input_username'),
+				'password' => $this->input->post('input_password')
 			);
 		} else {
 			$data = array(
 				'judul' => $this->input->post('judul'),
 				'content' => $this->input->post('content'),
+				'author' => $this->input->post('input_author'),
+				'email_author' => $this->input->post('input_email'),
+				'no_telp' => $this->input->post('input_notelp'),
+				'username' => $this->input->post('input_username'),
+				'password' => $this->input->post('input_password')
 			);
 		}
 		$this->db->where('id', $id);

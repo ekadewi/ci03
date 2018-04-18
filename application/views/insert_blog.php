@@ -49,15 +49,15 @@
          	</div>
     	</div>
 		<br>
-		<!-- <div class="alert-warning"><?php echo (isset($message))? : "";?></div> -->
+		<!-- <div class="alert-warning"><?php // echo (isset($message))? : "";?></div> -->
 		<div class="container">
 			<?php echo validation_errors(); ?>
-			<?php echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); ?>
+			<?php echo form_open_multipart('blog/tambah', array('class' => 'needs-validation', 'novalidate' => '')); ?>
 			<table class="table table-responsive">
 				<tr>
 					<td>Judul</td>
 					<td>:</td>
-					<td><input type="text" name="input_judul" style="width: 500px;" value="<?php echo set_value('input_judul'); ?>"></td>
+					<td><input type="text" class="form-control" name="input_judul" style="width: 500px;" value="<?php echo set_value('input_judul'); ?>"></td>
 				</tr>
 				<tr>
 					<td>Content</td>
@@ -105,4 +105,25 @@
 			</table>
 		</div>
 	</body>
+	<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script> // Example starter JavaScript for disabling form submissions if there are invalid fields 
+			(function() { 'use strict';
+			window.addEventListener('load', function() {   
+				// Fetch all the forms we want to apply custom Bootstrap validation styles to   
+				var forms = document.getElementsByClassName('needs-validation');   
+				// Loop over them and prevent submission   
+				var validation = Array.prototype.filter.call(forms, function(form) {     
+					form.addEventListener('submit', function(event) {       
+						if (form.checkValidity() === false) {         
+							event.preventDefault();         
+							event.stopPropagation();       
+						}       
+						form.classList.add('was-validated');     
+					}, false);   
+				}); }, false); 
+			})(); 
+		</script>
 </html>

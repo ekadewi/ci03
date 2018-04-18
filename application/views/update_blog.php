@@ -49,10 +49,13 @@
          	</div>
     	</div>
 		<br>
-		<div class="alert-warning"><?php echo (isset($message))? : "";?></div>
+		<!-- <div class="alert-warning"><?php // echo (isset($message))? : "";?></div> -->
 		<div class="container">
 			<?php foreach ($single as $key): ?>
-			<?php echo form_open('blog/update/'.$key->id, array('enctype'=>'multipart/form-data')); ?>
+			<?php echo validation_errors(); ?>
+			<?php echo form_open_multipart('blog/update/'.$key->id);
+			?>
+			<div class="form-group">
 				<table class="table table-responsive">
 					<tr>
 						<td>Id Blog</td>
@@ -62,42 +65,39 @@
 					<tr>
 						<td>Judul</td>
 						<td>:</td>
-						<td><input type="text" name="judul" style="width: 500px;" value="<?php echo set_value('judul', $key->judul); ?>"></td>
+						<td>
+							<input class="form-control" required type="text" name="judul" style="width: 500px;" value="<?php echo set_value('judul', $key->judul); ?>">
+						</td>
 					</tr>
 					<tr>
 						<td>Content</td>
 						<td>:</td>
-						<td><textarea name="content" style="height: 300px; width: 800px;"><?php echo set_value('content', $key->content); ?></textarea></td>
+						<td><textarea name="content" style="height: 300px; width: 800px;" required><?php echo set_value('content', $key->content); ?></textarea></td>
 					</tr>
 					<tr>
 						<td>Author</td>
 						<td>:</td>
-						<td><input type="text" name="input_author" style="width: 500px;" value="<?php echo set_value('input_author', $key->author); ?>"></td>
+						<td><input type="text" name="input_author" style="width: 500px;" value="<?php echo set_value('input_author', $key->author); ?>" required></td>
 					</tr>
 					<tr>
 						<td>Email Author</td>
 						<td>:</td>
-						<td><input type="text" name="input_email" style="width: 500px;" value="<?php echo set_value('input_email', $key->email_author); ?>"></td>
+						<td><input type="text" name="input_email" style="width: 500px;" value="<?php echo set_value('input_email', $key->email_author); ?>" required></td>
 					</tr>
 					<tr>
 						<td>No Telp Author</td>
 						<td>:</td>
-						<td><input type="text" name="input_notelp" style="width: 500px;" value="<?php echo set_value('input_notelp', $key->no_telp); ?>"></td>
+						<td><input type="text" name="input_notelp" style="width: 500px;" value="<?php echo set_value('input_notelp', $key->no_telp); ?>" required></td>
 					</tr>
 					<tr>
 						<td>Username</td>
 						<td>:</td>
-						<td><input type="text" name="input_username" style="width: 500px;" value="<?php echo set_value('input_username', $key->username); ?>"></td>
+						<td><input type="text" name="input_username" style="width: 500px;" value="<?php echo set_value('input_username', $key->username); ?>" required></td>
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td>:</td>
-						<td><input type="password" name="input_password" style="width: 500px;" value="<?php echo set_value('input_password', $key->password); ?>"></td>
-					</tr>
-					<tr>
-						<td>Password Konfirmasi</td>
-						<td>:</td>
-						<td><input type="password" name="input_passconf" style="width: 500px;"></td>
+						<td><input type="password" name="input_password" style="width: 500px;" value="<?php echo set_value('input_password', $key->password); ?>" required></td>
 					</tr>
 					<tr>
 						<td>Gambar</td>
@@ -108,7 +108,33 @@
 						<td colspan="3"><input type="submit" name="update" value="Edit" class="btn btn-primary"></td>
 					</tr>
 				</table>
-			<?php endforeach ?>
+				<?php endforeach ?>
+			</div>
+
 		</div>
+		
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- <script>
+				// Example starter JavaScript for disabling form submissions if there are invalid fields
+				(function() {
+				  'use strict';
+				  window.addEventListener('load', function() {
+		    		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+		    		var forms = document.getElementsByClassName('needs-validation');
+		    		// Loop over them and prevent submission
+		    		var validation = Array.prototype.filter.call(forms, function(form) {
+		    			form.addEventListener('submit', function(event) {
+		        			if (form.checkValidity() === false) {
+					          event.preventDefault();
+					          event.stopPropagation();
+					          form.classList.add('was-validated');
+		      				}, false);
+		    			});
+		  			}, false);
+				})();
+		</script> -->
 	</body>
 </html>
