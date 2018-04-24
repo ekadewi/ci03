@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('categoryModel');
+	}
+
 	public function index()
 	{
 		$this->load->model('artikel');
@@ -48,7 +54,11 @@ class Blog extends CI_Controller {
 
 	public function tambah()
 	{
-		 $this->form_validation->set_rules('input_judul', 'Judul', 'required',
+		$this->load->model('artikel');
+		$data = array();
+    	$data['categories'] = $this->categoryModel->get_all_categories();
+
+		$this->form_validation->set_rules('input_judul', 'Judul', 'required',
 			array(
 				'required' 		=> 'kolom %s tidak boleh kosong!!!!!!!'
 			));
@@ -90,10 +100,9 @@ class Blog extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 	    {
-	        $this->load->view('insert_blog');
+	        $this->load->view('insert_blog', $data);
 	    } else {
-	    	$this->load->model('artikel');
-			$data = array();
+
 
 			if ($this->input->post('submit')) {
 				$upload = $this->artikel->upload();
@@ -114,7 +123,7 @@ class Blog extends CI_Controller {
 	public function update($id) {
 		$this->load->model('artikel');
 		$data['single'] = $this->artikel->get_single($id);
-
+		$data['categories'] = $this->categoryModel->get_all_categories();
 		if ($this->input->post('update')) {
 			$upload=$this->artikel->upload();
 			$this->artikel->update($upload, $id);
@@ -128,7 +137,7 @@ class Blog extends CI_Controller {
 	{
 		$this->load->model('artikel');
 		$this->artikel->delete($id);
-		redirect('blog');
+		redirect('mahasiswa');
 	}
 
 

@@ -44,7 +44,8 @@ class Artikel extends CI_Model {
 			'email_author' => $this->input->post('input_email'),
 			'no_telp' => $this->input->post('input_notelp'),
 			'username' => $this->input->post('input_username'),
-			'password' => $this->input->post('input_password')
+			'password' => $this->input->post('input_password'),
+			'id_category' => $this->input->post('cat_id')
 		);
 
 		$this->db->insert('blog', $data);
@@ -60,7 +61,8 @@ class Artikel extends CI_Model {
 				'email_author' => $this->input->post('input_email'),
 				'no_telp' => $this->input->post('input_notelp'),
 				'username' => $this->input->post('input_username'),
-				'password' => $this->input->post('input_password')
+				'password' => $this->input->post('input_password'),
+				'id_category' => $this->input->post('cat_id')
 			);
 		} else {
 			$data = array(
@@ -70,7 +72,8 @@ class Artikel extends CI_Model {
 				'email_author' => $this->input->post('input_email'),
 				'no_telp' => $this->input->post('input_notelp'),
 				'username' => $this->input->post('input_username'),
-				'password' => $this->input->post('input_password')
+				'password' => $this->input->post('input_password'),
+				'id_category' => $this->input->post('cat_id')
 			);
 		}
 		$this->db->where('id', $id);

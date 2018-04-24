@@ -50,29 +50,41 @@
          	</div>
     	</div>
     	<div class="container">
-    		<a href="blog/tambah" class="btn btn-primary">Tambah</a>
-    		<a href="category" class="btn btn-primary">category</a>
+    		<a href="category/tambah" class="btn btn-primary">Tambah</a>
     	</div>
-    	<br>
-		<div class="container text-center">
-			<?php foreach ($artikel as $key): ?>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<table style="margin-bottom: 30px;">
-						<tr>
-							<td>
-								<a href="blog/detail/<?php echo $key->id ?>" style="color: black;">
-									<img src="upload/<?php echo $key->image;?>" alt="Image" width="300" height="200">
-									<br>
-									<?php echo $key->judul ?>
-								</a>
-								<br>
-								<a href="blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
-								<a href="blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
-							</td>
-						</tr>
-					</table>
-				</div>
-			<?php endforeach ?>
+    	<div class="container">
+    		<div class="row">
+		        <div class="col-sm-12">
+		            <div class="white-box">
+		                <div class="table-responsive">
+		                    <table class="table">
+		                        <thead>
+		                            <tr>
+		                                <th>ID CATEGORY</th>
+		                                <th>NAMA CATEGROY</th>
+		                                <th>DESKRIPSI</th>
+		                                <th>TANGGAL POST</th>
+		                                <th>AKSI</th>
+		                            </tr>
+		                        </thead>
+		                        <?php foreach ($categories as $key): ?>
+		                        <tbody>
+		                            <tr>
+		                                <td><?php echo $key->id; ?></td>
+		                                <td><?php echo $key->cat_name; ?></td>
+		                                <td><?php echo $key->cat_description; ?></td>
+		                                <td><?php echo $key->date_created; ?></td>
+		                                <td>
+		                                	<a href="category/update_category/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
+											<a href="#" class="btn btn-danger">Hapus</a>
+										</td>
+		                            </tr>
+		                        </tbody>
+		                        <?php endforeach ?>
+		                    </table>
+		                </div>
+		            </div>
+		        </div>
 		</div>
 	</body>
 </html>

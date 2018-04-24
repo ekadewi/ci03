@@ -52,6 +52,7 @@
 
 	    <?php foreach ($detail as $key): ?>
 	    <div class="container">
+	    	<h4>Kategori : <?php echo $key->id_category; ?></h4>
 	    	<table>
 	    		<tr class="text-right">
 	    			<td> Diposting pada tanggal <?php echo $key->tanggal_post; ?></td>

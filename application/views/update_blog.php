@@ -75,6 +75,15 @@
 						<td><textarea name="content" style="height: 300px; width: 800px;" required><?php echo set_value('content', $key->content); ?></textarea></td>
 					</tr>
 					<tr>
+						<label>Kategori</label>
+							<select name="cat_id" class="form-control" required>
+								<option value="">Pilih Kategori</option>
+								<?php foreach($categories as $category): ?>
+								<option value="<?php echo $category->id; ?>"><?php echo $category->cat_name; ?></option>
+								<?php endforeach; ?>
+							</select>
+					</tr>
+					<tr>
 						<td>Author</td>
 						<td>:</td>
 						<td><input type="text" name="input_author" style="width: 500px;" value="<?php echo set_value('input_author', $key->author); ?>" required></td>
