@@ -76,7 +76,7 @@
 		                                <td><?php echo $key->date_created; ?></td>
 		                                <td>
 		                                	<a href="category/update_category/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
-											<a href="#" class="btn btn-danger">Hapus</a>
+											<a href="category/delete_category/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
 										</td>
 		                            </tr>
 		                        </tbody>

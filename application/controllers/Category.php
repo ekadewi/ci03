@@ -53,6 +53,12 @@ class Category extends CI_Controller {
 		$this->load->view('update_category', $data);
 	}
 
+	public function delete_category($id)
+	{
+		$this->categoryModel->delete_category($id);
+		redirect('category');
+	}
+
 }
 
 /* End of file Category.php */

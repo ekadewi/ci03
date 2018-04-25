@@ -10,8 +10,13 @@ class Artikel extends CI_Model {
 
 	public function get_single($id)
 	{
-		$query = $this->db->query('select * from blog where id='.$id);
-		return $query->result();
+		// $query = $this->db->query('select a.judul, a.content, a.tanggal_post, a.image, b.cat_name from blog a INNER JOIN category b ON a.id_category = b.id WHERE a.id ='.$id);
+		// $this->db->select('blog.judul', 'blog.content', 'blog.tanggal_post', 'category.cat_name');
+		$this->db->select('*');
+		$this->db->from('blog');
+		$this->db->join('category', 'blog.id_category = category.id');
+		$this->db->where('blog.id='.$id);
+		return $this->db->get()->result();
 	}
 
 	public function upload()
