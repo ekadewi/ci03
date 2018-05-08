@@ -6,6 +6,13 @@ class Artikel extends CI_Model {
 	public function get_artikels(){
 		$query = $this->db->get('blog');
 		return $query->result();
+	}
+
+	public function get_all_blogs(){
+		$this->db->select('*');
+		$this->db->from('blog');
+		$this->db->join('category', 'blog.id_category = category.id');
+		return $this->db->get()->result();
 	}	
 
 	public function get_single($id)

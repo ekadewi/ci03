@@ -140,6 +140,13 @@ class Blog extends CI_Controller {
 		redirect('mahasiswa');
 	}
 
+	public function blog_kolom()
+	{
+		$this->load->model('artikel');
+		$data['blog'] = $this->artikel->get_all_blogs();
+		$this->load->view('tampil_all_blog', $data);
+	}
+
 
 
 }

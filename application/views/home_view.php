@@ -52,6 +52,7 @@
     	<div class="container">
     		<a href="blog/tambah" class="btn btn-primary">Tambah</a>
     		<a href="category" class="btn btn-primary">category</a>
+    		<a href="blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
     	</div>
     	<br>
 		<div class="container text-center">
