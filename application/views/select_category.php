@@ -7,6 +7,8 @@
 		<title>Title Page</title>
 
 		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/dt/datatables.min.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/dt/jquery.dataTables.min.css"/>
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -57,7 +59,7 @@
 		        <div class="col-sm-12">
 		            <div class="white-box">
 		                <div class="table-responsive">
-		                    <table class="table">
+		                    <table class="table" id="myTable">
 		                        <thead>
 		                            <tr>
 		                                <th>ID CATEGORY</th>
@@ -67,8 +69,8 @@
 		                                <th>AKSI</th>
 		                            </tr>
 		                        </thead>
-		                        <?php foreach ($categories as $key): ?>
 		                        <tbody>
+			                        <?php foreach ($categories as $key): ?>
 		                            <tr>
 		                                <td><?php echo $key->id; ?></td>
 		                                <td><?php echo $key->cat_name; ?></td>
@@ -79,12 +81,23 @@
 											<a href="category/delete_category/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
 										</td>
 		                            </tr>
+			                        <?php endforeach ?>
 		                        </tbody>
-		                        <?php endforeach ?>
 		                    </table>
 		                </div>
 		            </div>
 		        </div>
 		</div>
 	</body>
+	<script src="<?php echo base_url() ?>assets/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/dt/datatables.min.js"></script>
+	<script type="text/javascript">
+	        $(document).ready( function () {
+	            $('#myTable').DataTable({
+	            	"bInfo" : false,
+	            	"ordering" : true,
+	            	"dom": '<<"col-sm-4"l><"col-sm-4 text-center"f>>rti<<"col-sm-4 text-center"><"col-sm-4 text-center"p>>'
+	            });
+	        } );
+	</script>
 </html>

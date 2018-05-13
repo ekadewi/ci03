@@ -7,7 +7,7 @@
 		<title>Title Page</title>
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +27,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="home"><img class="img-responsive" alt="Coding" src="assets/img/logo1.png" width="40" height="40" style="margin-top: -10px;"></a>
+					<a class="navbar-brand" href="home"><img class="img-responsive" alt="Coding" src="<?php echo base_url() ?>assets/img/logo1.png" width="40" height="40" style="margin-top: -10px;"></a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,9 +50,9 @@
          	</div>
     	</div>
     	<div class="container">
-    		<a href="blog/tambah" class="btn btn-primary">Tambah</a>
-    		<a href="category" class="btn btn-primary">category</a>
-    		<a href="blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
+    		<a href="<?php echo base_url() ?>blog/tambah" class="btn btn-primary">Tambah</a>
+    		<a href="<?php echo base_url() ?>category" class="btn btn-primary">category</a>
+    		<a href="<?php echo base_url() ?>blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
     	</div>
     	<br>
 		<div class="container text-center">
@@ -61,19 +61,26 @@
 					<table style="margin-bottom: 30px;">
 						<tr>
 							<td>
-								<a href="blog/detail/<?php echo $key->id ?>" style="color: black;">
-									<img src="upload/<?php echo $key->image;?>" alt="Image" width="300" height="200">
+								<a href="<?php echo base_url() ?>blog/detail/<?php echo $key->id ?>" style="color: black;">
+									<img src="<?php echo base_url() ?>upload/<?php echo $key->image;?>" alt="Image" width="300" height="200">
 									<br>
 									<?php echo $key->judul ?>
 								</a>
 								<br>
-								<a href="blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
-								<a href="blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
+								<a href="<?php echo base_url() ?>blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
+								<a href="<?php echo base_url() ?>blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
 							</td>
 						</tr>
 					</table>
 				</div>
 			<?php endforeach ?>
+		</div>
+		<div class="text-center">
+			<?php
+			if (isset($links)) {
+				echo $links;
+			}
+		?>
 		</div>
 	</body>
 </html>
