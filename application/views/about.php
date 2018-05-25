@@ -90,10 +90,4 @@
 
 	that's who I'm. So if you want to ask something, you can send messages at ekadewinur034@gmail.com
 </div>
-
-<!-- jQuery -->
-<script src="assets/jquery/jquery.js"></script>
-<!-- Bootstrap JavaScript -->
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php $this->load->view('template/footer'); ?>

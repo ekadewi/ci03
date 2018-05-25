@@ -55,10 +55,4 @@
 		<img class="img-thumbnail" src="assets/img/coding3.jpg" width="400" height="300">
 	</div>
 </div>
-
-<!-- jQuery -->
-<script src="assets/jquery/jquery.js"></script>
-<!-- Bootstrap JavaScript -->
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php $this->load->view('template/footer'); ?>
