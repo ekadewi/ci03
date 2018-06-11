@@ -7,6 +7,10 @@ class Category extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('categoryModel');
+		if ($this->session->userdata('level') != 1) {
+			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			redirect('blog');
+		}
 	}
 
 	public function index()

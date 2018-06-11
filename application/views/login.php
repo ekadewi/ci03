@@ -19,6 +19,15 @@
 				<input type="password" name="password" style="width: 300px;" value="<?php echo set_value('password'); ?>">
 			</td>
 		</tr>
+		<!-- <tr>
+			<td>
+				<p>Level</p>
+				<input type="radio" name="level" value="1">
+				<label>admin</label>
+				<input type="radio" name="level" value="2">
+				<label>user</label>
+			</td>
+		</tr> -->
 		<tr class="text-center">
 			<td colspan="3"><input type="submit" name="submit" value="Sign Up" class="btn btn-primary"></td>
 		</tr>

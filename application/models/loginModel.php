@@ -17,6 +17,15 @@ class LoginModel extends CI_Model {
 		}
 	}	
 
+
+	public function get_user($id_user)
+	{
+		$this->db->select('id_level');
+		$this->db->from('user_level');
+		$this->db->where('id_user', $id_user);
+		return $this->db->get()->result();
+	}
+
 }
 
 /* End of file loginModel.php */

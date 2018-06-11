@@ -30,14 +30,17 @@ class Login extends CI_Controller {
 		} else {
 			$username = $this->input->post('username');
 			$password = md5($this->input->post('password'));
+			// $level = $this->input->post('level');
 
 			$id_user = $this->loginModel->login($username, $password);
 
 			if ($id_user) {
+				$level = $this->loginModel->get_user($id_user);
 				$user_data = array(
 					'id' => $id_user,
 					'username' => $username,
-					'logged_in' => true
+					'logged_in' => true,
+					'level' => $level[0]->id_level
 				);
 
 				$this->session->set_userdata($user_data);

@@ -11,6 +11,11 @@ class Blog extends CI_Controller {
 
 	public function index()
 	{
+		if ($this->session->userdata('level') == 1) {
+			$data['level'] = true;
+		} else {
+			$data['level'] = false;
+		}
 		$this->load->model('artikel');
 		$limit_per_page = 3;
 		$start_index = ( $this->uri->segment(3) ) ? $this->uri->segment(3) : 0;
@@ -68,6 +73,11 @@ class Blog extends CI_Controller {
 
 	public function tambah()
 	{
+		// cek level apabila bukan admin tidak bisa mengakses form tambh
+		if ($this->session->userdata('level') != 1) {
+			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			redirect('blog');
+		}
 		$this->load->model('artikel');
 		$data = array();
     	$data['categories'] = $this->categoryModel->get_all_categories();
@@ -130,11 +140,14 @@ class Blog extends CI_Controller {
 			}
 			$this->load->view('insert_blog', $data);
 	    }
-		
-		
+			
 	}
 
 	public function update($id) {
+		if ($this->session->userdata('level') != 1) {
+			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			redirect('blog');
+		}
 		$this->load->model('artikel');
 		$data['single'] = $this->artikel->get_single($id);
 		$data['categories'] = $this->categoryModel->get_all_categories();
@@ -149,9 +162,13 @@ class Blog extends CI_Controller {
 
 	public function delete($id)
 	{
+		if ($this->session->userdata('level') != 1) {
+			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			redirect('blog');
+		}
 		$this->load->model('artikel');
 		$this->artikel->delete($id);
-		redirect('mahasiswa');
+		redirect('blog');
 	}
 
 	public function blog_kolom()

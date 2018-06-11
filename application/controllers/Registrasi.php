@@ -57,6 +57,8 @@ class Registrasi extends CI_Controller {
 	    	$enc_password = md5($this->input->post('password'));
 			if ($this->input->post('submit')) {
 				$this->registrasiModel->insert_user($enc_password);
+				$id_user = $this->registrasiModel->get_user($this->input->post('username'));
+				$this->registrasiModel->insert_user_level($id_user[0]->id);
 				redirect('registrasi');
 			}
 			$this->load->view('registrasi');

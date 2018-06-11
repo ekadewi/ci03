@@ -10,9 +10,11 @@
  	</div>
 </div>
 <div class="container">
-	<a href="<?php echo base_url() ?>blog/tambah" class="btn btn-primary">Tambah</a>
-	<a href="<?php echo base_url() ?>category" class="btn btn-primary">category</a>
-	<a href="<?php echo base_url() ?>blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
+	<?php if ($level): ?>
+		<a href="<?php echo base_url() ?>blog/tambah" class="btn btn-primary">Tambah</a>
+		<a href="<?php echo base_url() ?>category" class="btn btn-primary">category</a>
+		<a href="<?php echo base_url() ?>blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
+	<?php endif ?>
 </div>
 <br>
 <div class="container text-center">
@@ -27,8 +29,10 @@
 							<?php echo $key->judul ?>
 						</a>
 						<br>
-						<a href="<?php echo base_url() ?>blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
-						<a href="<?php echo base_url() ?>blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
+						<?php if ($level): ?>
+							<a href="<?php echo base_url() ?>blog/update/<?php echo $key->id ?>" class="btn btn-primary">Edit</a>
+							<a href="<?php echo base_url() ?>blog/delete/<?php echo $key->id ?>" class="btn btn-danger">Hapus</a>
+						<?php endif ?>
 					</td>
 				</tr>
 			</table>
