@@ -14,6 +14,7 @@
 		<a href="<?php echo base_url() ?>blog/tambah" class="btn btn-primary">Tambah</a>
 		<a href="<?php echo base_url() ?>category" class="btn btn-primary">category</a>
 		<a href="<?php echo base_url() ?>blog/blog_kolom" class="btn btn-primary">Kolom Blog</a>
+		<a href="<?php echo base_url() ?>user" class="btn btn-primary">User</a>
 	<?php endif ?>
 </div>
 <br>

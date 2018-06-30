@@ -27,7 +27,7 @@ class RegistrasiModel extends CI_Model {
 	{
 		$data = array(
 			'id_user' => $id_user,
-			'id_level' => 2
+			'id_level' => $this->input->post('typeuser')
 		);
 
 		$this->db->insert('user_level', $data);

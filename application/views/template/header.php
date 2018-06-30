@@ -59,8 +59,8 @@
    	<?php if($this->session->flashdata('login_failed')): ?>
      	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
    	<?php endif; ?>
-   	<?php if($this->session->flashdata('not_admin')): ?>
-     	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('not_admin').'</p>'; ?>
+   	<?php if($this->session->flashdata('not_allow')): ?>
+     	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('not_allow').'</p>'; ?>
    	<?php endif; ?>
 
     <?php if($this->session->flashdata('user_loggedout')): ?>

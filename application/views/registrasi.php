@@ -40,6 +40,14 @@
 			<td><input type="text" name="no_telp" style="width: 500px;" value="<?php echo set_value('no_telp'); ?>"></td>
 		</tr>
 		<tr>
+			<td>Tipe user</td>
+			<td>:</td>
+			<td>
+				<input type="radio" name="typeuser" value="2">Non Premium
+				<input type="radio" name="typeuser" value="3">Premium
+			</td>
+		</tr>
+		<tr>
 			<td>Username</td>
 			<td>:</td>
 			<td><input type="text" name="username" style="width: 500px;" value="<?php echo set_value('username'); ?>"></td>

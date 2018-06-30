@@ -37,6 +37,10 @@ class Blog extends CI_Controller {
 
 	public function detail($id)
 	{
+		if ($this->session->userdata('level') == 2) {
+			$this->session->set_flashdata('not_allow', 'anda bukan user premium');
+			redirect('blog');
+		}
 		$this->load->model('artikel');
 		$data['detail'] = $this->artikel->get_single($id);
 		$this->load->view('home_detail', $data);
@@ -75,7 +79,7 @@ class Blog extends CI_Controller {
 	{
 		// cek level apabila bukan admin tidak bisa mengakses form tambh
 		if ($this->session->userdata('level') != 1) {
-			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			$this->session->set_flashdata('not_allow', 'Anda tidak diizinkan');
 			redirect('blog');
 		}
 		$this->load->model('artikel');
@@ -145,7 +149,7 @@ class Blog extends CI_Controller {
 
 	public function update($id) {
 		if ($this->session->userdata('level') != 1) {
-			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			$this->session->set_flashdata('not_allow', 'Anda tidak diizinkan');
 			redirect('blog');
 		}
 		$this->load->model('artikel');
@@ -163,7 +167,7 @@ class Blog extends CI_Controller {
 	public function delete($id)
 	{
 		if ($this->session->userdata('level') != 1) {
-			$this->session->set_flashdata('not_admin', 'Anda tidak diizinkan');
+			$this->session->set_flashdata('not_allow', 'Anda tidak diizinkan');
 			redirect('blog');
 		}
 		$this->load->model('artikel');
