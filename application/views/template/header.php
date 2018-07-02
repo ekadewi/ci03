@@ -45,6 +45,7 @@
 					<li><a href="<?php echo base_url() ?>home">Home</a></li>
 					<li><a href="<?php echo base_url() ?>blog">Blog</a></li>
 					<li><a href="<?php echo base_url() ?>about">About</a></li>
+					<li><a href="<?php echo base_url() ?>user/ganti_pass">Ganti Password</a></li>
 					<li><a href="<?php echo base_url() ?>login/logout">Hello <?php echo $this->session->userdata('username'); ?>, Logout</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -65,6 +66,12 @@
 
     <?php if($this->session->flashdata('user_loggedout')): ?>
      	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+   	<?php endif; ?>
+    <?php if($this->session->flashdata('updated')): ?>
+     	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('updated').'</p>'; ?>
+   	<?php endif; ?>
+    <?php if($this->session->flashdata('deleted')): ?>
+     	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('deleted').'</p>'; ?>
    	<?php endif; ?>
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 05:17 AM
+-- Generation Time: Jul 02, 2018 at 02:58 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -121,7 +121,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `nama`, `alamat`, `no_hp`, `email`, `agama`, `username`, `password`) VALUES
 (2, 'Eka Dewi Nur A', 'malang', '9009790', 'eka@gmail.com', 'islam', 'eka', '79ee82b17dfb837b1be94a6827fa395a'),
 (3, 'fahrul yurisnan', 'malang', '098765', 'paul@a.com', 'islam', 'paul', '6c63212ab48e8401eaf6b59b95d816a9'),
-(4, 'lol', 'lol', '0988712872', 'lol@lol.com', 'katolik', 'lol', '9cdfb439c7876e703e307864c9167a15');
+(5, 'paul', 'pau', '88', 'a@gmail.com', 'islam', 'lol', '9cdfb439c7876e703e307864c9167a15');
 
 -- --------------------------------------------------------
 
@@ -141,9 +141,9 @@ CREATE TABLE `user_level` (
 
 INSERT INTO `user_level` (`id`, `id_user`, `id_level`) VALUES
 (1, 2, 1),
-(3, 3, 2),
+(3, 3, 3),
 (4, 6, 2),
-(5, 4, 3);
+(6, 5, 2);
 
 --
 -- Indexes for dumped tables
@@ -202,12 +202,12 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user_level`
 --
 ALTER TABLE `user_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

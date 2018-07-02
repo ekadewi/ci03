@@ -33,8 +33,15 @@
                             <td><?php echo $key->agama; ?></td>
                             <td><?php echo $key->keterangan; ?></td>
                             <td>
-                            	<a href="update_user/<?php echo $key->id_user ?>" class="btn btn-primary">Edit</a>
-								<a href="delete_user/<?php echo $key->id_user ?>" class="btn btn-danger">Hapus</a>
+                                <?php
+                                    if($key->keterangan != 'admin'){
+                                ?>
+                                    <a href="<?= base_url() ?>user/update_user/<?php echo $key->id_user ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?= base_url() ?>user/delete_user/<?php echo $key->id_user ?>" class="btn btn-danger">Hapus</a>
+                                <?php
+                                    }
+                                ?>
+                            	
 							</td>
                         </tr>
                         <?php endforeach ?>

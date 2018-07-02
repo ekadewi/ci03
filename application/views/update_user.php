@@ -4,7 +4,7 @@
 </div>
 <div class="container">
 	<?php echo validation_errors(); ?>
-	<?php echo form_open_multipart('user/update/'.$single_user[0]->id, array('class' => 'needs-validation', 'novalidate' => '')); ?>
+	<?php echo form_open_multipart('user/update_user/'.$single_user[0]->id_user, array('class' => 'needs-validation', 'novalidate' => '')); ?>
 	<table class="table table-responsive">
 		<tr>
 			<td>Nama</td>
@@ -22,25 +22,13 @@
 			<td>
 				<select name="agama" class="" required>
 					<?php
-						if ($single_user[0]->agama == 'islam') {
-							$islam = true;
-						} else if ($single_user[0]->agama == 'hindu') {
-							$hindu = true;
-						} else if ($single_user[0]->agama == 'katolik') {
-							$katolik = true;
-						} else if ($single_user[0]->agama == 'kristen') {
-							$kristen = true;
-						} else if ($single_user[0]->agama == 'budha') {
-							$budha = true;
-						} else {
-							false;
-						}
+						$agama = $single_user[0]->agama;
 					?>
-					<option value="islam" <?php (isset($islam)) ? : 'selected' ?>>islam</option>
-					<option value="hindu" <?php (isset($hindu)) ? : 'selected' ?>>hindu</option>
-					<option value="katolik" <?php (isset($katolik)) ? : 'selected' ?>>katolik</option>
-					<option value="kristen" <?php (isset($kristen)) ? : 'selected' ?>>kristen</option>
-					<option value="budha" <?php (isset($budha)) ? : 'selected' ?>>budha</option>
+					<option value="islam" <?= ($agama == 'islam') ? 'selected' : '' ?>>islam</option>
+					<option value="hindu" <?= ($agama == 'hindu') ? 'selected' : '' ?>>hindu</option>
+					<option value="katolik" <?= ($agama == 'katolik') ? 'selected' : '' ?>>katolik</option>
+					<option value="kristen" <?= ($agama == 'kristen') ? 'selected' : '' ?>>kristen</option>
+					<option value="budha" <?= ($agama == 'budha') ? 'selected' : '' ?>>budha</option>
 				</select>
 			</td>
 		</tr>
@@ -57,9 +45,10 @@
 		<tr>
 			<td>Tipe user</td>
 			<td>:</td>
+			<?php $tipe_user = $single_user[0]->keterangan ?>
 			<td>
-				<input type="radio" name="typeuser" value="2"> Non Premium
-				<input type="radio" name="typeuser" value="3"> Premium
+				<input type="radio" name="typeuser" value="2" <?= ($tipe_user == 'non_premium') ? 'checked' : ''; ?>> Non Premium
+				<input type="radio" name="typeuser" value="3" <?= ($tipe_user == 'premium') ? 'checked' : ''; ?>> Premium
 			</td>
 		</tr>
 		<tr class="text-center">
